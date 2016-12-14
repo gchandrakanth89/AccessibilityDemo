@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
         String service = getPackageName() + "/" + MyAccessibilityService.class.getCanonicalName();
 
-        Settings.Secure.putString(this.getContentResolver(), "enabled_accessibility_services", service);
-        Settings.Secure.putInt(this.getContentResolver(), "accessibility_enabled", 1);
+
+        Settings.Secure.putString(this.getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES, service);
+        Settings.Secure.putInt(this.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 1);
 
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String operator = telephonyManager.getNetworkOperator();
